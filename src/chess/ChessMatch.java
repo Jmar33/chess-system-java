@@ -101,8 +101,6 @@ public class ChessMatch {
 				}
 		}
 		
-		
-		
 		check = testCheck(opponent(currentPlayer));
 		
 		if(testCheckMate(opponent(currentPlayer))) {
@@ -110,7 +108,6 @@ public class ChessMatch {
 		}else {
 			nextTurn();			
 		}
-		
 		
 		// #special move enpassant
 		if(movedPiece instanceof Pawn && (target.getRow() == source.getRow() - 2 || target.getRow() == source.getRow() + 2)) {
@@ -128,7 +125,7 @@ public class ChessMatch {
 		}
 		
 		if(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
-			throw new InvalidParameterException("Invalid type for promotion");
+			return promoted;
 		}
 		
 		Position pos = promoted.getChessPosition().toPosition();
